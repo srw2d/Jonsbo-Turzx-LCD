@@ -3,10 +3,15 @@
 Quick reference of the exact values that worked, plus a summary of the command history.
 Tested on **Manjaro Linux** with a single Jonsbo / TURZX LCD reporting `1cbe:0035`.
 
+**Hardware:** Jonsbo **TF3-360SCB (Black)** 360 mm LCD AIO — one ~3.5" pump LCD + three
+~3.38" fan LCDs, LCD connected over USB. SKU inferred from appearance + USB behavior vs.
+Jonsbo specs, not confirmed off the box.
+
 ## Exact working values
 
 | Item | Value |
 |------|-------|
+| Cooler model | Jonsbo TF3-360SCB (Black) 360 mm LCD AIO |
 | USB ID (`lsusb`) | `1cbe:0035 Luminary Micro Inc. TURZX1.0` |
 | Vendor ID | `0x1cbe` |
 | Product ID | `0x0035` |

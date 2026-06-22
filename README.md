@@ -24,6 +24,25 @@ script that together make it work.
 
 ---
 
+## Tested hardware
+
+This was set up on a **Jonsbo TF3-360SCB (Black)** — a 360 mm LCD AIO water cooler.
+
+- **Likely full product:** Jonsbo TF3-360SCB Black 360 mm LCD AIO
+- **Family:** TF3-360SC (variants include `TF3-360SCBN`, `TF3-360SCW`, `TF3-360SCWN`,
+  `TF3-360SCB-A`; `B` = black, `W` = white)
+- **Screens:** one ~3.5" pump LCD + three ~3.38" fan LCDs
+- **Connectors:** PWM 4-pin / ARGB 3-pin / **LCD over USB**
+- **What Linux sees:** the LCD enumerates as `1cbe:0035 TURZX1.0` (the panel this repo
+  patches and drives)
+
+> The exact SKU was **inferred** from the unit's appearance and USB behavior against
+> Jonsbo's published specs ([official product page](https://www.jonsbo.com/en/products/TF3-360SC.html)),
+> not read off the box. If yours reports a **different** USB ID than `1cbe:0035`, the
+> driver patch in this repo won't match as-is — see [the patch section](#4-apply-the-driver-patch-for-1cbe0035).
+
+---
+
 ## What's in this repo
 
 ```

@@ -25,6 +25,26 @@ và một script tự khởi động — tất cả cùng nhau giúp nó hoạt 
 
 ---
 
+## Phần cứng đã kiểm thử
+
+Cấu hình này được dựng trên một bộ **Jonsbo TF3-360SCB (Black)** — tản nhiệt nước AIO
+LCD 360 mm.
+
+- **Tên sản phẩm đầy đủ (khả năng cao):** Jonsbo TF3-360SCB Black 360 mm LCD AIO
+- **Dòng:** TF3-360SC (các biến thể gồm `TF3-360SCBN`, `TF3-360SCW`, `TF3-360SCWN`,
+  `TF3-360SCB-A`; `B` = đen, `W` = trắng)
+- **Màn hình:** một LCD bơm ~3.5" + ba LCD quạt ~3.38"
+- **Cổng kết nối:** PWM 4-pin / ARGB 3-pin / **LCD qua USB**
+- **Linux nhận diện:** LCD hiện ra là `1cbe:0035 TURZX1.0` (chính là tấm nền mà repo này
+  vá và điều khiển)
+
+> SKU chính xác được **suy đoán** từ ngoại hình thiết bị và hành vi USB đối chiếu với
+> thông số Jonsbo công bố ([trang sản phẩm chính thức](https://www.jonsbo.com/en/products/TF3-360SC.html)),
+> không phải đọc trực tiếp từ hộp. Nếu máy bạn báo USB ID **khác** `1cbe:0035`, bản vá
+> driver trong repo này sẽ không khớp nguyên trạng — xem [mục bản vá](#4-áp-dụng-bản-vá-driver-cho-1cbe0035).
+
+---
+
 ## Repo này có gì
 
 ```
