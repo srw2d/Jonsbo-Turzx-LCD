@@ -320,5 +320,7 @@ Kiểm tra cả hai điều sau:
 
 ## Giấy phép / miễn trừ
 
-Cung cấp nguyên trạng, cho cộng đồng. Không liên kết hay được chứng thực bởi Jonsbo,
-TURZX, hay dự án gốc. Xem dự án gốc để biết giấy phép của thư viện.
+Nội dung của repo này (tài liệu, bản vá, chỉnh sửa theme, script) được phát hành theo
+[Giấy phép MIT](LICENSE). Cung cấp nguyên trạng, cho cộng đồng. Không liên kết hay được
+chứng thực bởi Jonsbo, TURZX, hay dự án gốc. Thư viện `turing-smart-screen-python` có
+giấy phép riêng — xem dự án gốc.

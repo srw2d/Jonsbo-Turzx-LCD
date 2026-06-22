@@ -318,5 +318,7 @@ Confirm both of these:
 
 ## License / disclaimer
 
-Provided as-is, for the community. Not affiliated with or endorsed by Jonsbo, TURZX, or
-the upstream project. Refer to upstream for the library's own license.
+The contents of this repo (docs, patch, theme tweaks, scripts) are released under the
+[MIT License](LICENSE). Provided as-is, for the community. Not affiliated with or
+endorsed by Jonsbo, TURZX, or the upstream project. The
+`turing-smart-screen-python` library is covered by its own license — refer to upstream.
