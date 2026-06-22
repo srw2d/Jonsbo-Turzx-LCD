@@ -1,0 +1,15 @@
+diff --git a/library/lcd/lcd_comm_turing_usb.py b/library/lcd/lcd_comm_turing_usb.py
+index bb7063a..ad2fa89 100644
+--- a/library/lcd/lcd_comm_turing_usb.py
++++ b/library/lcd/lcd_comm_turing_usb.py
+@@ -41,7 +41,9 @@ from library.log import logger
+ VENDOR_ID = 0x1cbe
+ 
+ # Map of display supported product IDs and their respective resolution in portrait mode
+-PRODUCT_ID = {0x0028: (480, 480),  # Turing 2.8" round (USB)
++PRODUCT_ID = {
++    0x0035: (800, 480),  # Jonsbo/TURZX 3.5" USB LCD
++    0x0028: (480, 480),  # Turing 2.8" round (USB)
+     0x0046: (320, 960),  # Turing 4.6"
+     0x0050: (720, 1280),  # Turing 5.2"
+     0x0080: (800, 1280),  # Turing 8.0"

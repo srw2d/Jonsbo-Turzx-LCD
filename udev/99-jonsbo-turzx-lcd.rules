@@ -1,0 +1,3 @@
+# Jonsbo / TURZX USB LCD (1cbe:0035)
+# Grants the logged-in user access to the device without sudo.
+SUBSYSTEM=="usb", ATTR{idVendor}=="1cbe", ATTR{idProduct}=="0035", MODE="0666", TAG+="uaccess"
