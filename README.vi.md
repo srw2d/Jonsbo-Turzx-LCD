@@ -225,8 +225,7 @@ Nếu LCD sáng lên và hiển thị các chỉ số CPU / GPU / RAM / ổ đĩ
 
 Để LCD tự chạy khi đăng nhập.
 
-1. Cài script khởi chạy (đổi đường dẫn nếu clone ở nơi khác — script có đường dẫn đầy đủ
-   ghi cứng bên trong):
+1. Cài script khởi chạy:
 
    ```bash
    mkdir -p ~/.local/bin
@@ -234,25 +233,33 @@ Nếu LCD sáng lên và hiển thị các chỉ số CPU / GPU / RAM / ổ đĩ
    chmod +x ~/.local/bin/start-jonsbo-lcd.sh
    ```
 
-   Nội dung script:
+   Script tự dò vị trí dự án — thử `$TURING_DIR`, rồi
+   `~/Downloads/turing-smart-screen-python`, rồi `~/turing-smart-screen-python`, và dùng
+   `.venv` của dự án nếu có. Nếu clone của bạn ở nơi khác, hãy trỏ tới đó mà không cần
+   sửa tệp:
 
    ```bash
-   #!/usr/bin/env bash
-   cd /home/dokuro/Downloads/turing-smart-screen-python || exit 1
-   exec /home/dokuro/Downloads/turing-smart-screen-python/.venv/bin/python \
-        /home/dokuro/Downloads/turing-smart-screen-python/main.py
+   # chạy một lần
+   TURING_DIR=/opt/turing-smart-screen-python ~/.local/bin/start-jonsbo-lcd.sh
    ```
 
 2. Tạo mục autostart cho GNOME tại
-   `~/.config/autostart/jonsbo-lcd.desktop`:
+   `~/.config/autostart/jonsbo-lcd.desktop` (đổi `YOUR_USERNAME`, hoặc dùng
+   `%h/.local/bin/...` — GNOME sẽ thay bằng thư mục home của bạn):
 
    ```ini
    [Desktop Entry]
    Type=Application
    Name=Jonsbo LCD
-   Exec=/home/dokuro/.local/bin/start-jonsbo-lcd.sh
+   Exec=/home/YOUR_USERNAME/.local/bin/start-jonsbo-lcd.sh
    X-GNOME-Autostart-enabled=true
    Terminal=false
+   ```
+
+   Để trỏ autostart tới vị trí clone không mặc định, đặt biến trong `Exec`:
+
+   ```ini
+   Exec=/bin/bash -lc 'TURING_DIR=/opt/turing-smart-screen-python ~/.local/bin/start-jonsbo-lcd.sh'
    ```
 
 3. Đăng xuất rồi đăng nhập lại. LCD sẽ hiển thị dữ liệu ngay sau khi desktop tải xong.
@@ -296,8 +303,10 @@ Kiểm tra cả hai điều sau:
   Nó được chỉnh từ theme `26` của bản gốc cho tấm nền 800x480; vị trí và kiểu dáng các
   thành phần vẫn có thể được trau chuốt thêm.
 - Chỉ phiên bản `1cbe:0035` được kiểm thử. Các tấm nền Jonsbo / TURZX khác có thể khác.
-- Đường dẫn trong script và tài liệu giả định clone nằm ở
-  `~/Downloads/turing-smart-screen-python`. Hãy đổi cho khớp với máy bạn.
+- Script khởi chạy tự dò clone (`$TURING_DIR` →
+  `~/Downloads/turing-smart-screen-python` → `~/turing-smart-screen-python`). Một số ví
+  dụ/tài liệu khác vẫn dùng đường dẫn `~/Downloads/...` làm mặc định giả định — hãy đổi
+  cho khớp máy bạn, hoặc đặt `TURING_DIR`.
 
 ---
 

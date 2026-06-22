@@ -59,6 +59,16 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="1cbe", ATTR{idProduct}=="0035", MODE="0666", 
 
 ### Autostart script (`start-jonsbo-lcd.sh`)
 
+The committed script is path-agnostic: it resolves the project dir from `$TURING_DIR`,
+then `~/Downloads/turing-smart-screen-python`, then `~/turing-smart-screen-python`, and
+prefers the project's `.venv`. Override without editing:
+
+```bash
+TURING_DIR=/opt/turing-smart-screen-python ~/.local/bin/start-jonsbo-lcd.sh
+```
+
+The original hard-coded equivalent (for reference) was:
+
 ```bash
 #!/usr/bin/env bash
 cd /home/dokuro/Downloads/turing-smart-screen-python || exit 1

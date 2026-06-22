@@ -223,8 +223,7 @@ If the LCD lights up and shows CPU / GPU / RAM / disk stats, you're done.
 
 To start the LCD automatically on login.
 
-1. Install the launch script (adjust the path if your clone is elsewhere — the script
-   has the full paths hard-coded inside it):
+1. Install the launch script:
 
    ```bash
    mkdir -p ~/.local/bin
@@ -232,25 +231,33 @@ To start the LCD automatically on login.
    chmod +x ~/.local/bin/start-jonsbo-lcd.sh
    ```
 
-   The script:
+   The script auto-detects the project location — it tries `$TURING_DIR`, then
+   `~/Downloads/turing-smart-screen-python`, then `~/turing-smart-screen-python`, and
+   uses the project's `.venv` if present. If your clone lives elsewhere, point it there
+   without editing the file:
 
    ```bash
-   #!/usr/bin/env bash
-   cd /home/dokuro/Downloads/turing-smart-screen-python || exit 1
-   exec /home/dokuro/Downloads/turing-smart-screen-python/.venv/bin/python \
-        /home/dokuro/Downloads/turing-smart-screen-python/main.py
+   # one-off
+   TURING_DIR=/opt/turing-smart-screen-python ~/.local/bin/start-jonsbo-lcd.sh
    ```
 
 2. Create a GNOME autostart entry at
-   `~/.config/autostart/jonsbo-lcd.desktop`:
+   `~/.config/autostart/jonsbo-lcd.desktop` (replace `YOUR_USERNAME`, or use
+   `%h/.local/bin/...` which GNOME expands to your home directory):
 
    ```ini
    [Desktop Entry]
    Type=Application
    Name=Jonsbo LCD
-   Exec=/home/dokuro/.local/bin/start-jonsbo-lcd.sh
+   Exec=/home/YOUR_USERNAME/.local/bin/start-jonsbo-lcd.sh
    X-GNOME-Autostart-enabled=true
    Terminal=false
+   ```
+
+   To point autostart at a non-default clone location, set the variable in `Exec`:
+
+   ```ini
+   Exec=/bin/bash -lc 'TURING_DIR=/opt/turing-smart-screen-python ~/.local/bin/start-jonsbo-lcd.sh'
    ```
 
 3. Log out and back in. The LCD should populate shortly after the desktop loads.
@@ -294,8 +301,10 @@ Confirm both of these:
   was adapted from upstream theme `26` for the 800x480 panel; element placement and
   styling could still be polished.
 - Only the `1cbe:0035` revision was tested. Other Jonsbo / TURZX panels may differ.
-- Paths in the script and docs assume the clone lives at
-  `~/Downloads/turing-smart-screen-python`. Change them to match your setup.
+- The launch script auto-detects the clone (`$TURING_DIR` →
+  `~/Downloads/turing-smart-screen-python` → `~/turing-smart-screen-python`). Some other
+  docs/examples still use the `~/Downloads/...` path as the assumed default — adjust to
+  match your setup, or set `TURING_DIR`.
 
 ---
 
